@@ -39,3 +39,14 @@ that responds to a custom “FOO” HTTP method like this:
         echo "Hello";
     })->via('FOO');
     $app->run();
+
+### One route, any http methods
+
+If you want to manually manage itself conduct route regardless of HTTP method, you'll like `any()` method:
+
+    <?php
+    $app = new \Slim\Slim();
+    $app->any('/hello', function() {
+        echo "I respond to any HTTP methods!";
+    });
+    $app->run();
